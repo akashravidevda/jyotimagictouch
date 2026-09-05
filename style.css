@@ -4272,8 +4272,20 @@ ul, ol {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.75rem;
+  gap: 2.25rem;
   align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1.14fr 0.86fr;
+    gap: 2.5rem;
+  }
+
+  .form-luxury-card {
+    position: sticky;
+    top: calc(var(--header-height, 70px) + 20px);
+  }
 }
 
 /* Left Column Heading & Lead Description */
@@ -4294,246 +4306,618 @@ ul, ol {
   max-width: 520px;
 }
 
-/* 3 Modern Action Cards Stack */
+/* ==========================================================================
+   PREMIUM 3-CARD CONTACT / SUPPORT / BRANCHES COMPONENT (Compact Desktop Scale)
+   ========================================================================== */
 .contact-cards-stack {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
-.contact-card-modern {
+.contact-card-premium {
   position: relative;
   background-color: var(--color-white);
+  border-radius: 20px;
   border: 1px solid #EFE6DF;
-  border-radius: 18px;
-  padding: 1.4rem 1.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  box-shadow: 0 4px 20px rgba(60, 20, 35, 0.04);
+  padding: 1.25rem 1.45rem;
+  box-shadow: 0 8px 24px rgba(60, 20, 35, 0.04);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-card-modern:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(60, 20, 35, 0.08);
-  border-color: rgba(196, 160, 120, 0.5);
+.contact-card-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(60, 20, 35, 0.07);
 }
 
-.contact-card-modern.contact-card-whatsapp:hover {
-  border-color: rgba(37, 211, 102, 0.45);
+/* Card 1 Theme: Phone Inquiries */
+.card-phone-inquiries {
+  background: #FFFFFF;
+  border-color: #F4E2E0;
+}
+.card-phone-inquiries:hover {
+  border-color: #E6C4C1;
 }
 
-.contact-card-badge {
-  position: absolute;
-  top: 1.15rem;
-  right: 4.25rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #8C532B;
-  background-color: #F8EFE7;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(196, 160, 120, 0.3);
+/* Card 2 Theme: WhatsApp */
+.card-whatsapp {
+  background: #F4FAF6;
+  border-color: #DBEFE4;
+}
+.card-whatsapp:hover {
+  border-color: #BFECD1;
+  box-shadow: 0 12px 30px rgba(22, 126, 63, 0.07);
 }
 
-.contact-card-badge.badge-green {
-  color: #167E3F;
-  background-color: #E3F5E9;
-  border-color: rgba(37, 211, 102, 0.25);
+/* Card 3 Theme: Branches */
+.card-branches {
+  background: #FFFFFF;
+  border-color: #EFE4D8;
+}
+.card-branches:hover {
+  border-color: #E0CEBD;
 }
 
-.contact-card-left-col {
+/* Top Row: Icon + Header Text + Badge */
+.contact-card-top-row {
   display: flex;
   align-items: flex-start;
-  gap: 1.15rem;
-  flex: 1;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-bottom: 0.95rem;
 }
 
-.contact-card-icon {
-  width: 48px;
-  height: 48px;
+/* Left Icon Container */
+.contact-card-icon-wrap {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background-color: #F5E8E8;
-  color: #4A152C;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
+  position: relative;
 }
 
-.contact-card-icon.icon-green {
-  background-color: #E2F6EA;
-  color: #25D366;
+.contact-card-icon-wrap svg {
+  width: 22px;
+  height: 22px;
 }
 
-.contact-card-body-text {
+.icon-blush {
+  background-color: #FCECEE;
+  color: #5B1836;
+}
+
+/* Radiating rays for phone */
+.icon-spark-ray {
+  position: absolute;
+  width: 2px;
+  background-color: #5B1836;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+.icon-spark-ray.ray-1 {
+  height: 5px;
+  top: 5px;
+  right: 11px;
+  transform: rotate(35deg);
+}
+.icon-spark-ray.ray-2 {
+  height: 4px;
+  top: 3px;
+  right: 15px;
+  transform: rotate(5deg);
+}
+.icon-spark-ray.ray-3 {
+  height: 5px;
+  top: 6px;
+  right: 20px;
+  transform: rotate(-30deg);
+}
+
+.icon-mint {
+  background-color: #D3F3E0;
+  color: #0E8544;
+}
+
+.icon-beige {
+  background-color: #F8EFE4;
+  color: #641D3C;
+}
+
+/* Header Text */
+.contact-card-header-text {
   flex: 1;
+  min-width: 0;
 }
+
+.contact-card-eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+.eyebrow-blush { color: #8C532B; }
+.eyebrow-green { color: #167E3F; }
+.eyebrow-beige { color: #966838; }
 
 .contact-card-title {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  color: #3E1025;
-  margin: 0 0 0.25rem;
-  line-height: 1.25;
+  color: #200814;
+  line-height: 1.22;
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.01em;
 }
 
 .contact-card-desc {
-  font-size: 0.85rem;
-  color: #735D65;
-  line-height: 1.45;
-  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  color: #6B555D;
+  line-height: 1.35;
+  margin: 0;
 }
 
-/* Phone chips row */
-.contact-phone-chips-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.contact-number-pill-btn {
+/* Right Top Pill Badges */
+.contact-card-badge-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.42rem 0.95rem;
-  font-size: 0.84rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+.badge-blush {
+  background-color: #FAF0F0;
+  border-color: #F2DEDE;
+  color: #5B1836;
+}
+
+.badge-green {
+  background-color: #E6F7ED;
+  border-color: #C8ECD6;
+  color: #0E6B34;
+}
+
+.badge-beige {
+  background-color: #F8EFE4;
+  border-color: #EADBCE;
+  color: #5B300C;
+}
+
+.badge-pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #16A34A;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+  animation: liveDotPulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.2);
+  }
+  50% {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.08);
+  }
+}
+
+.badge-pill-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.badge-pill-title {
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #3E1025;
-  background-color: #FAF4EF;
-  border: 1px solid #EADBCE;
-  border-radius: var(--radius-pill);
-  text-decoration: none;
-  transition: all 0.25s ease;
+  letter-spacing: 0.03em;
 }
 
-.contact-number-pill-btn:hover {
-  background-color: #3E1025;
-  color: var(--color-white);
-  border-color: #3E1025;
+.badge-pill-sub {
+  font-size: 0.62rem;
+  font-weight: 500;
+  opacity: 0.85;
 }
 
-/* WhatsApp chat link */
-.contact-whatsapp-chat-link {
+/* Card 1: Action Row */
+.contact-card-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+.contact-card-script-note {
+  font-family: 'Caveat', 'Playfair Display', Georgia, cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  transform: rotate(-4deg);
+  white-space: nowrap;
+  user-select: none;
+  flex-shrink: 0;
+  margin-right: 0.35rem;
+}
+.script-rose {
+  color: #A86776;
+}
+
+.contact-phone-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.contact-call-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.8rem 0.35rem 0.45rem;
+  background-color: #FAF3F2;
+  border: 1.5px solid #ECD8D6;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.contact-call-pill:hover {
+  background-color: #FFFFFF;
+  border-color: #5B1836;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(91, 24, 54, 0.12);
+}
+
+.call-pill-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #5B1836;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.contact-call-pill:hover .call-pill-icon {
+  transform: scale(1.06);
+}
+
+.call-pill-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.call-pill-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2E0B1B;
+  white-space: nowrap;
+}
+
+.call-pill-sub {
+  font-size: 0.62rem;
+  color: #7A5862;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.contact-round-action-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 10px rgba(91, 24, 54, 0.18);
+}
+
+.btn-burgundy {
+  background-color: #5B1836;
+  color: #FFFFFF;
+}
+
+.contact-round-action-btn:hover {
+  background-color: #7A254B;
+  transform: translateX(2px) scale(1.05);
+  box-shadow: 0 5px 14px rgba(91, 24, 54, 0.28);
+}
+
+/* Card 2: WhatsApp Features & Action */
+.contact-whatsapp-features-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.85rem;
+  flex-wrap: nowrap;
+}
+
+.whatsapp-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  background-color: #E2F5EA;
+  color: #116B36;
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.contact-whatsapp-action-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  position: relative;
+}
+
+.contact-whatsapp-solid-btn {
+  flex: 1;
+  min-height: 44px;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #FFFFFF;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #178342;
+  border-radius: 9999px;
+  padding: 0.7rem 1.35rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
 }
 
-.contact-whatsapp-chat-link:hover {
-  color: #0E5E2E;
-  text-decoration: underline;
+.contact-whatsapp-solid-btn:hover {
+  background: linear-gradient(135deg, #047857 0%, #065F46 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
 }
 
-/* Split branch address row */
-.contact-branches-split-grid {
+.whatsapp-btn-circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-btn-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
+}
+
+.contact-whatsapp-solid-btn:hover .whatsapp-btn-arrow {
+  transform: translateX(3px);
+}
+
+.contact-script-with-arrow {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  background-color: #FCFAF8;
-  border: 1px solid #EFE6DF;
-  border-radius: 12px;
-  padding: 0.75rem 0.95rem;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Caveat', 'Playfair Display', Georgia, cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 0.95;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.branch-split-item {
+.script-green {
+  color: #107C41;
+}
+
+.script-curved-arrow {
+  color: #107C41;
+  flex-shrink: 0;
+}
+
+/* Card 3: Branches Mini Grid & Bottom Row */
+.contact-branch-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.contact-branch-mini-card {
+  background-color: #FFFFFF;
+  border: 1px solid #EFE4D8;
+  border-radius: 12px;
+  padding: 0.55rem 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-branch-mini-card:hover {
+  border-color: #DFB06C;
+  box-shadow: 0 3px 10px rgba(91, 24, 54, 0.05);
+}
+
+.branch-mini-thumb {
+  width: 74px;
+  height: 58px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #F4ECE3;
+}
+
+.branch-mini-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.contact-branch-mini-card:hover .branch-mini-thumb img {
+  transform: scale(1.06);
+}
+
+.branch-mini-info {
+  min-width: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
 }
 
-.branch-split-name {
-  font-size: 0.82rem;
+.branch-mini-name {
+  font-size: 0.8rem;
   font-weight: 700;
-  color: #3E1025;
+  color: #200814;
+  margin: 0;
+  line-height: 1.22;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.branch-split-addr {
-  font-size: 0.75rem;
-  color: #735D65;
-  line-height: 1.35;
+.branch-title-bold {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.branch-split-sep {
-  width: 1px;
-  height: 42px;
-  background-color: #E8DDD5;
-  align-self: center;
+.branch-star-icon {
+  color: #C9964B;
+  font-size: 0.82rem;
   flex-shrink: 0;
 }
 
-.contact-branch-anchor-link {
+.branch-mini-addr {
+  font-size: 0.68rem;
+  color: #6B555D;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.contact-branch-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.contact-map-gold-btn {
+  background: linear-gradient(135deg, #F3D9B1 0%, #E6C594 100%);
+  color: #422409;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.6rem 1.15rem 0.6rem 0.65rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #8C532B;
+  gap: 0.5rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  border: 1px solid #D6B27E;
+  box-shadow: 0 3px 10px rgba(196, 150, 75, 0.18);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
-.contact-branch-anchor-link:hover {
-  color: #3E1025;
-  text-decoration: underline;
+.contact-map-gold-btn:hover {
+  background: linear-gradient(135deg, #E6C594 0%, #D8B27B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(196, 150, 75, 0.25);
+  color: #2D1502;
 }
 
-/* Circular Arrow Buttons */
-.contact-card-arrow-circle {
-  width: 36px;
-  height: 36px;
+.map-btn-icon-circle {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background-color: #F8EFEF;
-  color: #641D3C;
+  background-color: #64380B;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 0.25s ease;
 }
 
-.contact-card-modern:hover .contact-card-arrow-circle {
-  background-color: #4A152C;
-  color: var(--color-white);
-  transform: translateX(2px);
+.map-btn-arrow {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
 }
 
-.contact-card-arrow-circle.arrow-green {
-  background-color: #E3F6EC;
-  color: #178342;
+.contact-map-gold-btn:hover .map-btn-arrow {
+  transform: translateX(3px);
 }
 
-.contact-card-modern.contact-card-whatsapp:hover .contact-card-arrow-circle.arrow-green {
-  background-color: #25D366;
-  color: var(--color-white);
-  transform: translateX(2px);
+.contact-script-with-map {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Caveat', 'Playfair Display', Georgia, cursive;
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 0.95;
+  user-select: none;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.script-gold {
+  color: #A37A4C;
+}
+
+.script-map-dashes {
+  color: #CDB393;
+}
+
+.script-map-icon {
+  color: #A37A4C;
 }
 
 /* Left Bottom Signature */
 .contact-signature-wrap {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding-top: 0.5rem;
+  gap: 0.15rem;
+  padding-top: 0.25rem;
 }
 
 .contact-signature-script {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Caveat', 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #7C452A;
   letter-spacing: -0.01em;
 }
@@ -4541,16 +4925,16 @@ ul, ol {
 .contact-signature-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  font-size: 0.72rem;
+  gap: 0.55rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   color: #3E1025;
   text-transform: uppercase;
 }
 
 .sig-line {
-  width: 32px;
+  width: 28px;
   height: 1px;
   background-color: #C9964B;
 }
@@ -5095,24 +5479,259 @@ ul, ol {
 }
 
 /* Responsive Overrides for Contact Section */
-@media (max-width: 767px) {
-  .contact-card-badge {
-    position: static;
-    display: inline-block;
-    margin-bottom: 0.45rem;
-    align-self: flex-start;
+@media (max-width: 991px) {
+  .contact-card-premium {
+    padding: 1.65rem 1.65rem;
   }
 
-  .contact-card-modern {
-    flex-direction: column;
+  .contact-card-top-row {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 0.95rem 1rem;
     align-items: flex-start;
   }
 
-  .contact-card-arrow-circle {
-    align-self: flex-end;
-    margin-top: -1.75rem;
+  .contact-card-icon-wrap {
+    grid-row: 1 / 3;
+    width: 52px;
+    height: 52px;
   }
 
+  .contact-card-header-text {
+    grid-column: 2;
+  }
+
+  .contact-card-badge-pill {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 0.15rem;
+  }
+
+  .contact-phone-buttons-group {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .contact-whatsapp-features-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 3.5rem 0;
+  }
+
+  .contact-cards-stack {
+    gap: 1.25rem;
+  }
+
+  .contact-card-premium {
+    padding: 1.35rem 1.15rem;
+    border-radius: 20px;
+  }
+
+  .contact-card-top-row {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 0.65rem 0.85rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .contact-card-icon-wrap {
+    width: 46px;
+    height: 46px;
+    grid-row: 1;
+  }
+
+  .contact-card-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-card-header-text {
+    grid-column: 2;
+  }
+
+  .contact-card-eyebrow {
+    font-size: 0.68rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-card-title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .contact-card-badge-pill {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 0.35rem 0.75rem;
+    border-radius: 10px;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .badge-pill-title {
+    font-size: 0.7rem;
+  }
+
+  .badge-pill-sub {
+    font-size: 0.64rem;
+  }
+
+  /* Card 1: Phone Inquiries Action */
+  .contact-card-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding-top: 0.25rem;
+  }
+
+  .contact-card-script-note {
+    display: block;
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 0 0 0.15rem;
+  }
+
+  .contact-phone-buttons-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .contact-call-pill {
+    width: 100%;
+    padding: 0.55rem 0.95rem 0.55rem 0.55rem;
+    border-radius: 14px;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .call-pill-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .call-pill-num {
+    font-size: 0.92rem;
+  }
+
+  .call-pill-sub {
+    font-size: 0.68rem;
+  }
+
+  .contact-round-action-btn {
+    display: none;
+  }
+
+  /* Card 2: WhatsApp Action */
+  .contact-whatsapp-features-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .whatsapp-feature-chip {
+    font-size: 0.74rem;
+    padding: 0.32rem 0.65rem;
+    border-radius: 9999px;
+  }
+
+  .contact-whatsapp-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .contact-whatsapp-solid-btn {
+    width: 100%;
+    font-size: 0.88rem;
+    padding: 0.8rem 1rem;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-script-with-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+  }
+
+  .script-curved-arrow {
+    display: none;
+  }
+
+  /* Card 3: Branches Action */
+  .contact-branch-mini-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .contact-branch-mini-card {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 14px;
+    align-items: center;
+  }
+
+  .branch-mini-thumb {
+    width: 78px;
+    height: 64px;
+    border-radius: 8px;
+  }
+
+  .branch-mini-name {
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+  }
+
+  .branch-mini-addr {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+
+  .contact-branch-bottom-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .contact-map-gold-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.88rem;
+  }
+
+  .contact-script-with-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
+  }
+
+  .script-map-dashes {
+    display: none;
+  }
+
+  /* Form Responsive Styles */
   .form-category-grid {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -5136,28 +5755,85 @@ ul, ol {
   .form-crown-seal {
     align-self: flex-start;
   }
-
-  .contact-branches-split-grid {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .branch-split-sep {
-    display: none;
-  }
 }
 
 @media (max-width: 480px) {
+  .contact-card-premium {
+    padding: 1.15rem 0.95rem;
+    border-radius: 18px;
+  }
+
+  .contact-card-top-row {
+    grid-template-columns: 40px 1fr;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .contact-card-icon-wrap {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-card-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-card-title {
+    font-size: 1.15rem;
+  }
+
+  .contact-card-desc {
+    font-size: 0.8rem;
+  }
+
+  .contact-call-pill {
+    padding: 0.5rem 0.75rem 0.5rem 0.45rem;
+    border-radius: 12px;
+  }
+
+  .call-pill-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .call-pill-num {
+    font-size: 0.88rem;
+  }
+
+  .call-pill-sub {
+    font-size: 0.66rem;
+  }
+
+  .contact-whatsapp-solid-btn {
+    font-size: 0.82rem;
+    padding: 0.75rem 0.75rem;
+  }
+
+  .contact-branch-mini-card {
+    grid-template-columns: 68px 1fr;
+    gap: 0.65rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .branch-mini-thumb {
+    width: 68px;
+    height: 58px;
+  }
+
+  .branch-mini-name {
+    font-size: 0.78rem;
+  }
+
+  .branch-mini-addr {
+    font-size: 0.68rem;
+  }
+
   .form-luxury-body {
-    padding: 1.25rem 1.15rem 1.5rem;
+    padding: 1.25rem 1rem 1.5rem;
   }
 
   .form-luxury-header {
-    padding: 1.35rem 1.15rem;
-  }
-
-  .contact-card-modern {
-    padding: 1.15rem 1.15rem;
+    padding: 1.35rem 1rem;
   }
 }
 
@@ -5397,12 +6073,22 @@ ul, ol {
   transition: all 0.25s ease;
 }
 
+.footer-social-circle svg {
+  display: block;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
 .footer-social-circle:hover {
   background-color: #DFB76C;
   border-color: #DFB76C;
   color: #2E081A;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(223, 183, 108, 0.3);
+}
+
+.footer-social-circle:hover svg {
+  transform: scale(1.08);
 }
 
 .footer-pillars-tag {
