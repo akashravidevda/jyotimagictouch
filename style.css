@@ -4193,57 +4193,330 @@ ul, ol {
 }
 
 /* ==========================================================================
-   SOCIAL MEDIA PRESENCE STRIP
+   SOCIAL MEDIA / CONNECT WITH US SECTION (Editorial Visual System)
    ========================================================================== */
-.social-strip-section {
-  background-color: var(--color-white);
-  padding: 2.25rem 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+.social-media-section {
+  background-color: #FCF8F4;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(223, 203, 192, 0.55);
+  border-bottom: 1px solid rgba(223, 203, 192, 0.55);
+  padding: clamp(68px, 6.5vw, 92px) 0 clamp(60px, 5.5vw, 80px);
 }
 
-.social-strip-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
+/* Decorative Botanical Line Art */
+.social-decor-branch {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(140px, 16vw, 240px);
+  height: auto;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.social-decor-left {
+  left: 0;
+}
+
+.social-decor-right {
+  right: 0;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Sparkle Elements */
+.social-sparkle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+}
+
+.sparkle-left {
+  top: 28%;
+  left: clamp(12px, 3.5vw, 55px);
+}
+
+.sparkle-right {
+  top: 38%;
+  right: clamp(12px, 3.5vw, 55px);
+}
+
+.sparkle-corner-left {
+  bottom: 22%;
+  left: clamp(24px, 5vw, 85px);
+  opacity: 0.35;
+}
+
+.social-media-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Heading Area */
+.social-heading-area {
   text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.social-strip-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-muted-text);
+.social-top-rule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 
-.social-links-row {
+.social-top-rule .rule-line {
+  width: clamp(70px, 8vw, 110px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 151, 129, 0.65), transparent);
+}
+
+.social-top-rule .rule-sparkle {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
+  align-items: center;
   justify-content: center;
 }
 
-.social-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.65rem 1.25rem;
-  background-color: var(--color-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  font-size: 0.9rem;
+.social-eyebrow {
+  display: block;
+  font-family: var(--font-body, inherit);
+  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
   font-weight: 600;
-  color: var(--color-dark-text);
-  transition: all var(--transition-fast);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #8C5E58;
+  margin-bottom: 0.5rem;
 }
 
-.social-chip:hover {
-  background-color: var(--color-soft-blush);
-  border-color: var(--color-dusty-rose);
-  color: var(--color-primary);
-  transform: translateY(-2px);
+.social-main-heading {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #3B172B;
+  margin: 0 0 0.75rem;
+}
+
+.social-supporting-text {
+  font-family: var(--font-body, inherit);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.55;
+  color: #76636B;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Three Equal Cards Grid */
+.social-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2vw, 28px);
+  margin-top: clamp(38px, 4vw, 50px);
+}
+
+/* Individual Social Card */
+.social-card {
+  display: grid;
+  grid-template-columns: clamp(62px, 5.2vw, 76px) 1fr clamp(42px, 3.4vw, 48px);
+  align-items: center;
+  column-gap: clamp(14px, 1.4vw, 18px);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(160, 110, 100, 0.16);
+  border-radius: 22px;
+  padding: clamp(15px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px);
+  box-shadow: 0 10px 30px rgba(70, 35, 35, 0.04);
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-card:hover,
+.social-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(70, 35, 35, 0.08);
+  border-color: rgba(160, 110, 100, 0.32);
+  outline: none;
+}
+
+.social-card:focus-visible {
+  outline: 2px solid var(--color-primary, #5B1836);
+  outline-offset: 3px;
+}
+
+/* Icon Wrap */
+.social-card-icon-wrap {
+  width: clamp(62px, 5.2vw, 76px);
+  height: clamp(62px, 5.2vw, 76px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.22s ease;
+}
+
+.social-card:hover .social-card-icon-wrap {
+  transform: scale(1.04);
+}
+
+.icon-instagram {
+  background: linear-gradient(135deg, #FFF1F4 0%, #FFE9E3 100%);
+  border: 1px solid rgba(220, 39, 67, 0.12);
+}
+
+.icon-facebook {
+  background: #EDF3FC;
+  border: 1px solid rgba(24, 119, 242, 0.12);
+}
+
+.icon-youtube {
+  background: #FDF1EF;
+  border: 1px solid rgba(255, 0, 0, 0.12);
+}
+
+/* Text Content */
+.social-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.social-platform-name {
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #3B172B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social-platform-handle {
+  font-family: var(--font-body, inherit);
+  font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #7A666E;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Arrow Button */
+.social-card-arrow {
+  width: clamp(42px, 3.4vw, 48px);
+  height: clamp(42px, 3.4vw, 48px);
+  border-radius: 50%;
+  background-color: #F8ECE8;
+  color: #3B172B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+}
+
+.social-card:hover .social-card-arrow {
+  transform: translateX(4px);
+  background-color: #F0DCD5;
+  color: #3B172B;
+}
+
+/* Bottom Brand Statement */
+.social-bottom-statement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: clamp(38px, 4.5vw, 52px);
+  user-select: none;
+}
+
+.social-bottom-statement .statement-rule {
+  width: clamp(60px, 9vw, 130px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(181, 117, 108, 0.4), transparent);
+}
+
+.social-bottom-statement .statement-script {
+  font-family: 'Caveat', 'Playfair Display', Georgia, cursive;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 500;
+  color: #B5756C;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1023px) {
+  .social-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .social-media-section {
+    padding: 52px 0 48px;
+  }
+  
+  .social-decor-branch {
+    display: none;
+  }
+  
+  .social-sparkle {
+    display: none;
+  }
+
+  .social-card {
+    grid-template-columns: 58px 1fr 40px;
+    column-gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+  }
+
+  .social-card-icon-wrap {
+    width: 58px;
+    height: 58px;
+  }
+
+  .social-card-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-card-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-platform-name {
+    font-size: 1.15rem;
+  }
+
+  .social-platform-handle {
+    font-size: 0.84rem;
+  }
+
+  .social-bottom-statement {
+    margin-top: 32px;
+  }
 }
 
 /* ==========================================================================

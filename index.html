@@ -18,10 +18,8 @@
   <!-- Favicon SVG -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%235B1836'/><path d='M50 20 L58 38 L78 40 L62 54 L68 74 L50 62 L32 74 L38 54 L22 40 L42 38 Z' fill='%23C9964B'/></svg>">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <!-- Local Self-Hosted Fonts -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
 
   <link rel="stylesheet" href="style.css">
 
@@ -2008,27 +2006,136 @@
       </div>
     </section>
 
-    <!-- SOCIAL MEDIA PRESENCE STRIP -->
-    <section class="social-strip-section">
+    <!-- SOCIAL MEDIA / CONNECT WITH US SECTION -->
+    <section class="social-media-section" id="social-connect">
+      <!-- Decorative Botanical Branches -->
+      <div class="social-decor-branch social-decor-left" aria-hidden="true">
+        <svg viewBox="0 0 160 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 250 C 40 200, 60 140, 140 30" stroke="#C9A08A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M55 185 C 45 160, 20 165, 22 180 C 24 195, 48 195, 55 185 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M78 150 C 95 130, 115 145, 105 160 C 95 175, 75 165, 78 150 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M96 115 C 80 95, 60 105, 65 125 C 70 140, 92 130, 96 115 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M120 75 C 140 60, 155 75, 145 92 C 135 105, 115 90, 120 75 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M138 35 C 130 15, 148 10, 152 25 C 156 40, 142 45, 138 35 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="social-decor-branch social-decor-right" aria-hidden="true">
+        <svg viewBox="0 0 160 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 250 C 40 200, 60 140, 140 30" stroke="#C9A08A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M55 185 C 45 160, 20 165, 22 180 C 24 195, 48 195, 55 185 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M78 150 C 95 130, 115 145, 105 160 C 95 175, 75 165, 78 150 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M96 115 C 80 95, 60 105, 65 125 C 70 140, 92 130, 96 115 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M120 75 C 140 60, 155 75, 145 92 C 135 105, 115 90, 120 75 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+          <path d="M138 35 C 130 15, 148 10, 152 25 C 156 40, 142 45, 138 35 Z" fill="#E8D5CB" fill-opacity="0.3" stroke="#C9A08A" stroke-width="1.2"/>
+        </svg>
+      </div>
+
+      <!-- Sparkle Highlights -->
+      <div class="social-sparkle sparkle-left" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="#D2A48C"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z"/></svg>
+      </div>
+      <div class="social-sparkle sparkle-right" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="#D2A48C"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z"/></svg>
+      </div>
+      <div class="social-sparkle sparkle-corner-left" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#D2A48C"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8L12 0Z"/></svg>
+      </div>
+
       <div class="container">
-        <div class="social-strip-inner reveal-on-scroll">
-          <div class="social-strip-title">
-            <span>Connect on Social Channels</span>
+        <div class="social-media-wrapper reveal-on-scroll">
+          
+          <!-- Editorial Centered Header -->
+          <div class="social-heading-area">
+            <!-- Decorative Top Rule: Line + Sparkle + Line -->
+            <div class="social-top-rule" aria-hidden="true">
+              <span class="rule-line"></span>
+              <span class="rule-sparkle">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#C99781"><path d="M12 0L14.4 9.6L24 12L14.4 14.4L12 24L9.6 14.4L0 12L9.6 9.6L12 0Z"/></svg>
+              </span>
+              <span class="rule-line"></span>
+            </div>
+
+            <span class="social-eyebrow">STAY CONNECTED</span>
+            <h2 class="social-main-heading">Connect With Us</h2>
+            <p class="social-supporting-text">Follow us for beauty inspiration, bridal work, exclusive offers and course updates.</p>
           </div>
-          <div class="social-links-row">
-            <a href="https://www.instagram.com/jyotimagictouch?igsi=MW00Zjd3NHR3amlraw==" target="_blank" rel="noopener" class="social-chip" aria-label="Instagram @jyotimagictouch">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              <span>@jyotimagictouch</span>
+
+          <!-- Three Equal Social Cards Grid -->
+          <div class="social-cards-grid">
+            <!-- Instagram Card -->
+            <a href="https://www.instagram.com/jyotimagictouch?igsi=MW00Zjd3NHR3amlraw==" target="_blank" rel="noopener" class="social-card card-instagram" aria-label="Follow Jyoti Magic Touch on Instagram @jyotimagictouch">
+              <div class="social-card-icon-wrap icon-instagram">
+                <!-- Instagram Official Gradient Icon -->
+                <svg viewBox="0 0 24 24" width="34" height="34">
+                  <defs>
+                    <linearGradient id="ig-card-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#f09433"/>
+                      <stop offset="25%" stop-color="#e6683c"/>
+                      <stop offset="50%" stop-color="#dc2743"/>
+                      <stop offset="75%" stop-color="#cc2366"/>
+                      <stop offset="100%" stop-color="#bc1888"/>
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(#ig-card-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </div>
+              <div class="social-card-text">
+                <span class="social-platform-name">Instagram</span>
+                <span class="social-platform-handle">@jyotimagictouch</span>
+              </div>
+              <div class="social-card-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
             </a>
-            <a href="https://www.facebook.com/p/Jyoti-magic-touch-100071159661059/" target="_blank" rel="noopener" class="social-chip" aria-label="Facebook Jyoti Magic Touch">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              <span>Jyoti Magic Touch</span>
+
+            <!-- Facebook Card -->
+            <a href="https://www.facebook.com/p/Jyoti-magic-touch-100071159661059/" target="_blank" rel="noopener" class="social-card card-facebook" aria-label="Follow Jyoti Magic Touch on Facebook">
+              <div class="social-card-icon-wrap icon-facebook">
+                <!-- Facebook Official Blue Icon -->
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="#1877F2">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </div>
+              <div class="social-card-text">
+                <span class="social-platform-name">Facebook</span>
+                <span class="social-platform-handle">Jyoti Magic Touch</span>
+              </div>
+              <div class="social-card-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
             </a>
-            <a href="https://www.youtube.com/@jyotimagictouch2481" target="_blank" rel="noopener" class="social-chip" aria-label="YouTube @jyotimagictouch2481">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.58 7.19A2.78 2.78 0 0 0 19.64 5.25C17.92 4.79 12 4.79 12 4.79s-5.92 0-7.64.46A2.78 2.78 0 0 0 2.42 7.19 29.04 29.04 0 0 0 1.96 12.44a29.04 29.04 0 0 0 .46 5.25 2.78 2.78 0 0 0 1.94 1.94c1.72.46 7.64.46 7.64.46s5.92 0 7.64-.46a2.78 2.78 0 0 0 1.94-1.94 29.04 29.04 0 0 0 .46-5.25 29.04 29.04 0 0 0-.46-5.25zm-11.83 8.27V8.54l6.1 3.46-6.1 3.46z"/></svg>
-              <span>@jyotimagictouch2481</span>
+
+            <!-- YouTube Card -->
+            <a href="https://www.youtube.com/@jyotimagictouch2481" target="_blank" rel="noopener" class="social-card card-youtube" aria-label="Subscribe to Jyoti Magic Touch on YouTube @jyotimagictouch2481">
+              <div class="social-card-icon-wrap icon-youtube">
+                <!-- YouTube Official Red Icon -->
+                <svg viewBox="0 0 24 24" width="34" height="34" fill="#FF0000">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21.58 7.19A2.78 2.78 0 0 0 19.64 5.25C17.92 4.79 12 4.79 12 4.79s-5.92 0-7.64.46A2.78 2.78 0 0 0 2.42 7.19 29.04 29.04 0 0 0 1.96 12.44a29.04 29.04 0 0 0 .46 5.25 2.78 2.78 0 0 0 1.94 1.94c1.72.46 7.64.46 7.64.46s5.92 0 7.64-.46a2.78 2.78 0 0 0 1.94-1.94 29.04 29.04 0 0 0 .46-5.25 29.04 29.04 0 0 0-.46-5.25zm-11.83 8.27V8.54l6.1 3.46-6.1 3.46z"/>
+                </svg>
+              </div>
+              <div class="social-card-text">
+                <span class="social-platform-name">YouTube</span>
+                <span class="social-platform-handle">@jyotimagictouch2481</span>
+              </div>
+              <div class="social-card-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
             </a>
           </div>
+
+          <!-- Bottom Handwritten Brand Statement -->
+          <div class="social-bottom-statement" aria-hidden="true">
+            <span class="statement-rule"></span>
+            <span class="statement-script">Beauty Inspires Confidence ♡</span>
+            <span class="statement-rule"></span>
+          </div>
+
         </div>
       </div>
     </section>
